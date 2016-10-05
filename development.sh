@@ -4,7 +4,6 @@
 
 yum -y update
 yum -y install hg
-yum -y install openssh-server
 yum -y install xorg-x11-xauth
 yum -y install xorg-x11-utils
 yum -y install xorg-x11-fonts-*
@@ -87,6 +86,8 @@ fi
 
 echo Instalando servidor ssh ...
 if [ ! -f /usr/sbin/sshd ]; then
+	yum -y install openssh-server
+	yum clean all
 	mkdir /var/run/sshd
 	ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
 	sed -i "s/HostKey \/etc\/ssh\/ssh_host_ecdsa_key/#HostKey \/etc\/ssh\/ssh_host_ecdsa_key/g" /etc/ssh/sshd_config
