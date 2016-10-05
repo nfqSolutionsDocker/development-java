@@ -12,14 +12,14 @@ if [ ! -f /solutions/app/java/bin/java ]; then
 	mv $(ls -d /solutions/app/jdk*/) /solutions/app/java
 fi
 
-echo Instalando java jdk1.6.0.45
-if [ ! -f /solutions/app/jdk1.6.0_45/bin/java ]; then
-	wget -P /solutions/app/ --no-cookies --no-check-certificate --header \
-        "Cookie: oraclelicense=accept-securebackup-cookie" \
-        "http://download.oracle.com/otn-pub/java/jdk/6u45-b15/jdk-6u45-linux-x64.tar.gz"
-        tar -xvzf /solutions/app/jdk-6u45-linux-x64.tar.gz -C /solutions/app/
-        chmod -R 777 $(ls -d /solutions/app/jdk1.6.0_45/)
-fi
+#echo Instalando java jdk1.6.0.45
+#if [ ! -f /solutions/app/jdk1.6.0_45/bin/java ]; then
+#	wget -P /solutions/app/ --no-cookies --no-check-certificate --header \
+#        "Cookie: oraclelicense=accept-securebackup-cookie" \
+#        "http://download.oracle.com/otn-pub/java/jdk/6u45-b15/jdk-6u45-linux-x64.tar.gz"
+#        tar -xvzf /solutions/app/jdk-6u45-linux-x64.tar.gz -C /solutions/app/
+#        chmod -R 777 $(ls -d /solutions/app/jdk1.6.0_45/)
+#fi
 
 echo Instalando java jdk1.7.0_80
 if [ ! -f /solutions/app/jdk1.7.0_80/bin/java ]; then

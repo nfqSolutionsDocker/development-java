@@ -2,7 +2,6 @@
 
 This container has the following characteristics:
 - Container nfqsolutions/centos:7.
-- Install java jdk1.6.0_45
 - Install java jdk1.7.0_80
 - Install java jdk1.8.0_92 (default)
 - Install maven 3.2.5
@@ -31,4 +30,6 @@ app:
 ```
 
 For execute eclipse:
+```
 ssh -X root@<MACHINE_IP> -p<PORT_B> /solutions/app/eclipse/eclipse
+```
