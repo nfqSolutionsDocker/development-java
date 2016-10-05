@@ -4,12 +4,6 @@
 
 yum -y update
 yum -y install hg
-yum -y install xorg-x11-xauth
-yum -y install xorg-x11-utils
-yum -y install xorg-x11-fonts-*
-yum -y install xorg-x11-server-utils
-yum -y groups install "GNOME Desktop"
-yum clean all
 
 echo Instalando java jdk1.8.0_92...
 if [ ! -f /solutions/app/java/bin/java ]; then
@@ -87,12 +81,18 @@ fi
 echo Instalando servidor ssh ...
 if [ ! -f /usr/sbin/sshd ]; then
 	yum -y install openssh-server
-	yum clean all
 	mkdir /var/run/sshd
 	ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
 	sed -i "s/HostKey \/etc\/ssh\/ssh_host_ecdsa_key/#HostKey \/etc\/ssh\/ssh_host_ecdsa_key/g" /etc/ssh/sshd_config
 	sed -i "s/HostKey \/etc\/ssh\/ssh_host_ed25519_key/#HostKey \/etc\/ssh\/ssh_host_ed25519_key/g" /etc/ssh/sshd_config
 fi
+
+yum -y install xorg-x11-xauth
+yum -y install xorg-x11-utils
+yum -y install xorg-x11-fonts-*
+yum -y install xorg-x11-server-utils
+yum -y groups install "GNOME Desktop"
+yum clean all
 
 echo Ejecutando sshd ...
 /usr/sbin/sshd -D
